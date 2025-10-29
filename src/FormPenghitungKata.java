@@ -50,7 +50,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
         PanelJudul = new javax.swing.JPanel();
         lblJudul = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblMasukkanKata = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtInput = new javax.swing.JTextArea();
         btnHitung = new javax.swing.JButton();
@@ -75,6 +75,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        PanelJudul.setBackground(new java.awt.Color(0, 153, 153));
         PanelJudul.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblJudul.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -84,21 +85,21 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         PanelJudul.setLayout(PanelJudulLayout);
         PanelJudulLayout.setHorizontalGroup(
             PanelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJudulLayout.createSequentialGroup()
-                .addGap(228, 228, 228)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJudulLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblJudul)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(223, 223, 223))
         );
         PanelJudulLayout.setVerticalGroup(
             PanelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelJudulLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(32, 32, 32)
                 .addComponent(lblJudul)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Masukkan Kata :");
+        lblMasukkanKata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMasukkanKata.setText("Masukkan Kata :");
 
         txtInput.setColumns(20);
         txtInput.setRows(10);
@@ -128,33 +129,43 @@ public class FormPenghitungKata extends javax.swing.JFrame {
             }
         });
 
+        PanelHasil.setBackground(new java.awt.Color(0, 102, 102));
         PanelHasil.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblJudulPerhitungan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblJudulPerhitungan.setForeground(new java.awt.Color(255, 255, 255));
         lblJudulPerhitungan.setText("HASIL PERHITUNGAN");
 
         lblJumlahKata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblJumlahKata.setForeground(new java.awt.Color(255, 255, 255));
         lblJumlahKata.setText("Jumlah Kata :");
 
         lblJumlahKarakter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblJumlahKarakter.setForeground(new java.awt.Color(255, 255, 255));
         lblJumlahKarakter.setText("Jumlah Karakter :");
 
         lblJumlahKalimat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblJumlahKalimat.setForeground(new java.awt.Color(255, 255, 255));
         lblJumlahKalimat.setText("Jumlah Kalimat :");
 
         lblJumlahParagraf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblJumlahParagraf.setForeground(new java.awt.Color(255, 255, 255));
         lblJumlahParagraf.setText("Jumlah Paragraf :");
 
         lblKata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblKata.setForeground(new java.awt.Color(255, 255, 255));
         lblKata.setText("[ 0 ]");
 
         lblKarakter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblKarakter.setForeground(new java.awt.Color(255, 255, 255));
         lblKarakter.setText("[ 0 ]");
 
         lblKalimat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblKalimat.setForeground(new java.awt.Color(255, 255, 255));
         lblKalimat.setText("[ 0 ]");
 
         lblParagraf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblParagraf.setForeground(new java.awt.Color(255, 255, 255));
         lblParagraf.setText("[ 0 ]");
 
         javax.swing.GroupLayout PanelHasilLayout = new javax.swing.GroupLayout(PanelHasil);
@@ -174,11 +185,11 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                     .addComponent(lblKarakter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblKalimat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblParagraf, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelHasilLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblJudulPerhitungan)
-                .addGap(126, 126, 126))
+                .addGap(115, 115, 115))
         );
         PanelHasilLayout.setVerticalGroup(
             PanelHasilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,12 +215,15 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
+        PanelPencarian.setBackground(new java.awt.Color(0, 102, 102));
         PanelPencarian.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblJudulPencarian.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblJudulPencarian.setForeground(new java.awt.Color(255, 255, 255));
         lblJudulPencarian.setText("PENCARIAN KATA");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Cari Kata :");
 
         btnCari.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -221,6 +235,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         });
 
         lblHasilCari.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblHasilCari.setForeground(new java.awt.Color(255, 255, 255));
         lblHasilCari.setText("Cari : [ - ]");
 
         javax.swing.GroupLayout PanelPencarianLayout = new javax.swing.GroupLayout(PanelPencarian);
@@ -228,7 +243,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         PanelPencarianLayout.setHorizontalGroup(
             PanelPencarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPencarianLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addComponent(lblJudulPencarian, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPencarianLayout.createSequentialGroup()
@@ -237,11 +252,11 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PanelPencarianLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(PanelPencarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelPencarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCari, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblHasilCari, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(lblHasilCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelPencarianLayout.setVerticalGroup(
             PanelPencarianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +269,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(lblHasilCari)
+                .addComponent(lblHasilCari, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -273,7 +288,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                             .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblMasukkanKata, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(PanelHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
@@ -285,7 +300,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(PanelJudul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lblMasukkanKata)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -298,7 +313,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(PanelHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PanelPencarian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 100, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,7 +493,6 @@ private void simpanKeFile() {
     private javax.swing.JButton btnHitung;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHasilCari;
@@ -492,6 +506,7 @@ private void simpanKeFile() {
     private javax.swing.JLabel lblKalimat;
     private javax.swing.JLabel lblKarakter;
     private javax.swing.JLabel lblKata;
+    private javax.swing.JLabel lblMasukkanKata;
     private javax.swing.JLabel lblParagraf;
     private javax.swing.JTextField txtCari;
     private javax.swing.JTextArea txtInput;
