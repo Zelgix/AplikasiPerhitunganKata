@@ -7,6 +7,11 @@
  *
  * @author USER
  */
+import javax.swing.*;
+import javax.swing.event.*;
+import java.util.regex.*;
+import java.io.*;
+
 public class FormPenghitungKata extends javax.swing.JFrame {
 
     /**
@@ -14,8 +19,26 @@ public class FormPenghitungKata extends javax.swing.JFrame {
      */
     public FormPenghitungKata() {
         initComponents();
-    }
+        
+        txtInput.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+        @Override
+        public void insertUpdate(javax.swing.event.DocumentEvent e) {
+            hitungSemua();
+        }
 
+        @Override
+        public void removeUpdate(javax.swing.event.DocumentEvent e) {
+            hitungSemua();
+        }
+
+        @Override
+        public void changedUpdate(javax.swing.event.DocumentEvent e) {
+            hitungSemua();
+        }
+    });
+    }
+     // DocumentListener untuk perhitungan real-time
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,12 +106,27 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
         btnHitung.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnHitung.setText("HITUNG");
+        btnHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHitungActionPerformed(evt);
+            }
+        });
 
         btnReset.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSimpan.setText("SIMPAN");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         PanelHasil.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -176,6 +214,11 @@ public class FormPenghitungKata extends javax.swing.JFrame {
 
         btnCari.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCari.setText("CARI");
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
 
         lblHasilCari.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblHasilCari.setText("Cari : [ - ]");
@@ -261,6 +304,137 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
+        hitungSemua();
+    }//GEN-LAST:event_btnHitungActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+    txtInput.setText("");
+    txtCari.setText("");
+    lblKata.setText("0");
+    lblKarakter.setText("0");
+    lblKalimat.setText("0");
+    lblParagraf.setText("0");
+    lblHasilCari.setText("-");
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        cariKata();
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        simpanKeFile();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    // Method untuk menghitung semua
+private void hitungSemua() {
+    String teks = txtInput.getText();
+    
+    // Hitung karakter
+    int jumlahKarakter = teks.length();
+    lblKarakter.setText(String.valueOf(jumlahKarakter));
+    
+    // Hitung kata menggunakan regex
+    int jumlahKata = 0;
+    if (!teks.trim().isEmpty()) {
+        String[] kata = teks.trim().split("\\s+");
+        jumlahKata = kata.length;
+    }
+    lblKata.setText(String.valueOf(jumlahKata));
+    
+    // Hitung kalimat menggunakan regex
+    int jumlahKalimat = 0;
+    if (!teks.trim().isEmpty()) {
+        String[] kalimat = teks.split("[.!?]+");
+        jumlahKalimat = kalimat.length;
+        // Kurangi 1 jika teks diakhiri dengan tanda baca
+        if (teks.trim().endsWith(".") || teks.trim().endsWith("!") || teks.trim().endsWith("?")) {
+            // Sudah benar
+        } else if (kalimat[kalimat.length - 1].trim().isEmpty()) {
+            jumlahKalimat--;
+        }
+    }
+    lblKalimat.setText(String.valueOf(jumlahKalimat));
+    
+    // Hitung paragraf
+    int jumlahParagraf = 0;
+    if (!teks.trim().isEmpty()) {
+        String[] paragraf = teks.split("\n\n+");
+        jumlahParagraf = paragraf.length;
+    }
+    lblParagraf.setText(String.valueOf(jumlahParagraf));
+}
+
+// Method untuk mencari kata
+private void cariKata() {
+    String teks = txtInput.getText();
+    String kataCari = txtCari.getText().trim();
+    
+    if (kataCari.isEmpty()) {
+        lblHasilCari.setText("Masukkan kata yang ingin dicari!");
+        return;
+    }
+    
+    // Menggunakan regex untuk mencari kata (case-insensitive)
+    java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(
+        "\\b" + java.util.regex.Pattern.quote(kataCari) + "\\b",
+        java.util.regex.Pattern.CASE_INSENSITIVE
+    );
+    java.util.regex.Matcher matcher = pattern.matcher(teks);
+    
+    int count = 0;
+    while (matcher.find()) {
+        count++;
+    }
+    
+    if (count > 0) {
+        lblHasilCari.setText("Ditemukan " + count + " kali");
+    } else {
+        lblHasilCari.setText("Tidak ditemukan");
+    }
+}
+
+// Method untuk menyimpan ke file
+private void simpanKeFile() {
+    try {
+        javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
+        fileChooser.setDialogTitle("Simpan Hasil");
+        
+        int userSelection = fileChooser.showSaveDialog(this);
+        
+        if (userSelection == javax.swing.JFileChooser.APPROVE_OPTION) {
+            java.io.File fileToSave = fileChooser.getSelectedFile();
+            
+            // Tambahkan ekstensi .txt jika belum ada
+            if (!fileToSave.getAbsolutePath().endsWith(".txt")) {
+                fileToSave = new java.io.File(fileToSave.getAbsolutePath() + ".txt");
+            }
+            
+            java.io.FileWriter writer = new java.io.FileWriter(fileToSave);
+            
+            // Tulis teks
+            writer.write("===== TEKS =====\n");
+            writer.write(txtInput.getText());
+            writer.write("\n\n===== HASIL PERHITUNGAN =====\n");
+            writer.write("Jumlah Kata: " + lblKata.getText() + "\n");
+            writer.write("Jumlah Karakter: " + lblKarakter.getText() + "\n");
+            writer.write("Jumlah Kalimat: " + lblKalimat.getText() + "\n");
+            writer.write("Jumlah Paragraf: " + lblParagraf.getText() + "\n");
+            
+            writer.close();
+            
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "File berhasil disimpan!", 
+                "Sukses", 
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Gagal menyimpan file: " + e.getMessage(), 
+            "Error", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+}
     /**
      * @param args the command line arguments
      */
