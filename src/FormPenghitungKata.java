@@ -85,17 +85,17 @@ public class FormPenghitungKata extends javax.swing.JFrame {
         PanelJudul.setLayout(PanelJudulLayout);
         PanelJudulLayout.setHorizontalGroup(
             PanelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJudulLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelJudulLayout.createSequentialGroup()
+                .addGap(211, 211, 211)
                 .addComponent(lblJudul)
-                .addGap(223, 223, 223))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelJudulLayout.setVerticalGroup(
             PanelJudulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJudulLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJudulLayout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(lblJudul)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
 
         lblMasukkanKata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -291,10 +291,10 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                                 .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblMasukkanKata, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(55, 55, 55)
+                        .addGap(18, 18, 18)
                         .addComponent(PanelPencarian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(PanelHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +313,7 @@ public class FormPenghitungKata extends javax.swing.JFrame {
                     .addComponent(btnSimpan, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(PanelHasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 100, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
